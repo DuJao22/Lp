@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sytem DuJão • Soluções Futuristas</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: "Segoe UI", sans-serif;
+      background: #0f0f11;
+      color: #f1f1f1;
+      overflow-x: hidden;
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background: radial-gradient(circle at 20% 10%, rgba(16,185,129,0.15), transparent 40%),
+                  radial-gradient(circle at 80% 30%, rgba(59,130,246,0.12), transparent 45%),
+                  radial-gradient(circle at 50% 80%, rgba(244,63,94,0.10), transparent 50%);
+      z-index: 0;
+    }
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background: conic-gradient(from 0deg, transparent 0deg, rgba(16,185,129,0.15) 60deg, transparent 120deg, rgba(59,130,246,0.12) 180deg, transparent 240deg, rgba(244,63,94,0.10) 300deg, transparent 360deg);
+      animation: spin 40s linear infinite;
+      opacity: 0.25;
+      z-index: 0;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    header, footer, section { position: relative; z-index: 1; }
+    header {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 15px 30px; backdrop-filter: blur(12px);
+      flex-wrap: wrap;
+    }
+    header h1 { font-size: 1.2rem; font-weight: bold; color: #7ef5c6; margin: 0; }
+    header nav { display: flex; gap: 15px; margin-top: 10px; }
+    header a { color: #bbb; text-decoration: none; transition: 0.3s; }
+    header a:hover { color: #fff; }
+    .logo {
+      height: 50px;
+      object-fit: contain;
+    }
+
+    .hero {
+      max-width: 1100px; margin: 40px auto; padding: 30px;
+      background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 20px; text-align: center; backdrop-filter: blur(20px);
+    }
+    .hero h2 {
+      font-size: 2.2rem;
+      background: linear-gradient(90deg, #4ef3c4, #4fc3ff, #ff71c7);
+      -webkit-background-clip: text; color: transparent;
+    }
+    .hero p { color: #ccc; margin-top: 15px; font-size: 1rem; }
+    .btn-main {
+      display: inline-block; margin-top: 20px; padding: 12px 24px;
+      border-radius: 12px; font-weight: bold;
+      background: #34d399; color: #111; text-decoration: none; transition: 0.3s;
+    }
+    .btn-main:hover { background: #10b981; }
+
+    .cards {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px; max-width: 1100px; margin: 60px auto; padding: 0 20px;
+    }
+    .card {
+      background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 16px; padding: 20px; backdrop-filter: blur(12px);
+      transition: 0.3s;
+    }
+    .card:hover { border-color: #34d399; transform: translateY(-4px); }
+    .card h3 { margin-top: 0; color: #7ef5c6; font-size: 1.1rem; }
+    .card p { color: #ccc; min-height: 60px; font-size: 0.95rem; }
+    .btn-card {
+      display: inline-block; margin-top: 15px; padding: 10px 20px;
+      border-radius: 10px; font-size: 0.9rem;
+      background: #34d399; color: #111; text-decoration: none; transition: 0.3s;
+    }
+    .btn-card:hover { background: #10b981; }
+
+    .highlights {
+      max-width: 1100px; margin: 60px auto; padding: 0 20px;
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px;
+    }
+    .highlight {
+      background: rgba(255,255,255,0.05); padding: 20px; border-radius: 16px;
+      border: 1px solid rgba(255,255,255,0.1); text-align: center;
+    }
+    .highlight h4 { color: #7ef5c6; margin-bottom: 10px; }
+    .highlight p { color: #aaa; font-size: 0.9rem; }
+
+    .cta {
+      max-width: 900px; margin: 80px auto; padding: 30px;
+      text-align: center; background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1); border-radius: 20px;
+      backdrop-filter: blur(20px);
+    }
+    .cta h3 { font-size: 1.6rem; }
+    .cta p { color: #ccc; margin-top: 10px; font-size: 1rem; }
+    .cta .btn-main { margin-top: 20px; }
+
+    footer { padding: 20px; text-align: center; font-size: 0.8rem; color: #888; }
+
+    /* Responsividade */
+    @media (max-width: 600px) {
+      .hero h2 { font-size: 1.6rem; }
+      .hero p { font-size: 0.9rem; }
+      header { flex-direction: column; align-items: flex-start; }
+      header nav { margin-top: 10px; }
+      .logo { height: 40px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="https://i.postimg.cc/Xqhjqxr8/Whats-App-Image-2025-09-01-at-00-19-58.jpg" alt="Logo Sytem DuJão" class="logo">
+    <h1>Sytem DuJão</h1>
+    <nav>
+      <a href="#produtos">Produtos</a>
+      <a href="#contato">Contato</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h2>Soluções digitais inteligentes para sua empresa</h2>
+    <p>João Layon • Full Stack Developer • Fundador da <strong>Sytem DuJão</strong>.  
+       Criando sistemas rápidos, confiáveis e integrados com IA.</p>
+    <a href="#produtos" class="btn-main">Explorar Produtos</a>
+  </section>
+
+  <section id="produtos" class="cards">
+    <div class="card">
+      <h3>CivilSaaS (EngenPro)</h3>
+      <p>Plataforma SaaS para engenheiros civis: prazos, custos, segurança, licenças e relatórios.</p>
+      <a href="https://engpro-v1.onrender.com/login" class="btn-card" target="_blank">Quero conhecer</a>
+    </div>
+    <div class="card">
+      <h3>Financeiro Inteligente v7.0 (IA)</h3>
+      <p>Painel financeiro com IA para insights, automações e relatórios completos.</p>
+      <a href="https://financeiro-inteligente-v7-0-com-ia.onrender.com" class="btn-card" target="_blank">Quero conhecer</a>
+    </div>
+    <div class="card">
+      <h3>Controle Neuropsicológico</h3>
+      <p>Gestão de pacientes, agendamentos e laudos com modelo financeiro adaptado para clínicas.</p>
+      <a href="https://controle-geral-neruropsicologia.onrender.com" class="btn-card" target="_blank">Quero conhecer</a>
+    </div>
+    <div class="card">
+      <h3>AVA System v2.0</h3>
+      <p>Ambiente virtual de aprendizagem com módulos dinâmicos para ensino.</p>
+      <a href="https://avasystem-v2-0.onrender.com" class="btn-card" target="_blank">Quero conhecer</a>
+    </div>
+  </section>
+
+  <section class="highlights">
+    <div class="highlight"><h4>IA Aplicada</h4><p>Automação, agentes inteligentes e relatórios preditivos.</p></div>
+    <div class="highlight"><h4>Confiabilidade</h4><p>Sistemas estáveis, com logs e segurança de ponta.</p></div>
+    <div class="highlight"><h4>Performance</h4><p>Experiência rápida, responsiva e otimizada.</p></div>
+    <div class="highlight"><h4>Integrações</h4><p>Conexão com bancos de dados, APIs e serviços em nuvem.</p></div>
+  </section>
+
+  <section id="contato" class="cta">
+    <h3>Quer levar sua operação para o próximo nível?</h3>
+    <p>Entre em contato com a <strong>Sytem DuJão</strong> e descubra qual solução é ideal para você.</p>
+    <a href="https://wa.me/5531995281707?text=Olá%20João%20Layon,%20tenho%20interesse%20nas%20soluções%20da%20Sytem%20DuJão" target="_blank" class="btn-main">Falar com João no WhatsApp</a>
+  </section>
+
+  <footer>
+    © 2025 • Sytem DuJão. Desenvolvido por João Layon • Full Stack.
+  </footer>
+</body>
+</html>
