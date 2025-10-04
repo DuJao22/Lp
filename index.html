@@ -1,124 +1,83 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sytem DuJão • Soluções Para Sua Empresa !</title>
+  <title>Sytem DuJão • Soluções Inteligentes para Sua Empresa</title>
   <style>
-    body {
-      margin: 0;
-      font-family: "Segoe UI", sans-serif;
-      background: #0f0f11;
-      color: #f1f1f1;
-      overflow-x: hidden;
-    }
+    /* Reset básico e fontes */
+    body, h1, h2, h3, h4, p, a { margin: 0; padding: 0; font-family: "Segoe UI", sans-serif; }
+    body { background: #0f0f11; color: #f1f1f1; overflow-x: hidden; line-height: 1.6; }
+
+    /* Background animado */
     body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
+      content: ""; position: fixed; inset: 0;
       background: radial-gradient(circle at 20% 10%, rgba(16,185,129,0.15), transparent 40%),
                   radial-gradient(circle at 80% 30%, rgba(59,130,246,0.12), transparent 45%),
                   radial-gradient(circle at 50% 80%, rgba(244,63,94,0.10), transparent 50%);
       z-index: 0;
     }
     body::after {
-      content: "";
-      position: fixed;
-      inset: 0;
+      content: ""; position: fixed; inset: 0;
       background: conic-gradient(from 0deg, transparent 0deg, rgba(16,185,129,0.15) 60deg, transparent 120deg, rgba(59,130,246,0.12) 180deg, transparent 240deg, rgba(244,63,94,0.10) 300deg, transparent 360deg);
       animation: spin 40s linear infinite;
-      opacity: 0.25;
-      z-index: 0;
+      opacity: 0.2; z-index: 0;
     }
     @keyframes spin { to { transform: rotate(360deg); } }
 
+    /* Layout geral */
     header, footer, section { position: relative; z-index: 1; }
-    header {
-      display: flex; justify-content: space-between; align-items: center;
-      padding: 15px 30px; backdrop-filter: blur(12px);
-      flex-wrap: wrap;
-    }
-    header h1 { font-size: 1.2rem; font-weight: bold; color: #7ef5c6; margin: 0; }
-    header nav { display: flex; gap: 15px; margin-top: 10px; }
+    header { display: flex; justify-content: space-between; align-items: center; padding: 15px 40px; backdrop-filter: blur(12px); flex-wrap: wrap; border-bottom: 1px solid rgba(255,255,255,0.1); }
+    header h1 { font-size: 1.5rem; font-weight: bold; color: #7ef5c6; }
+    header nav { display: flex; gap: 20px; }
     header a { color: #bbb; text-decoration: none; transition: 0.3s; }
     header a:hover { color: #fff; }
-    .logo {
-      height: 50px;
-      object-fit: contain;
-    }
+    .logo { height: 50px; object-fit: contain; }
 
-    .hero {
-      max-width: 1100px; margin: 40px auto; padding: 30px;
-      background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 20px; text-align: center; backdrop-filter: blur(20px);
-    }
-    .hero h2 {
-      font-size: 2.2rem;
-      background: linear-gradient(90deg, #4ef3c4, #4fc3ff, #ff71c7);
-      -webkit-background-clip: text; color: transparent;
-    }
-    .hero p { color: #ccc; margin-top: 15px; font-size: 1rem; }
-    .btn-main {
-      display: inline-block; margin-top: 20px; padding: 12px 24px;
-      border-radius: 12px; font-weight: bold;
-      background: #34d399; color: #111; text-decoration: none; transition: 0.3s;
-    }
+    /* Hero */
+    .hero { max-width: 1100px; margin: 60px auto; padding: 40px 30px; text-align: center; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 20px; backdrop-filter: blur(20px); }
+    .hero h2 { font-size: 2.5rem; background: linear-gradient(90deg, #4ef3c4, #4fc3ff, #ff71c7); -webkit-background-clip: text; color: transparent; }
+    .hero p { color: #ccc; font-size: 1.05rem; margin-top: 15px; }
+    .btn-main { display: inline-block; margin-top: 25px; padding: 14px 28px; border-radius: 14px; font-weight: bold; background: #34d399; color: #111; text-decoration: none; transition: 0.3s; }
     .btn-main:hover { background: #10b981; }
 
-    .cards {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 20px; max-width: 1100px; margin: 60px auto; padding: 0 20px;
-    }
-    .card {
-      background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 16px; padding: 20px; backdrop-filter: blur(12px);
-      transition: 0.3s;
-    }
-    .card:hover { border-color: #34d399; transform: translateY(-4px); }
-    .card h3 { margin-top: 0; color: #7ef5c6; font-size: 1.1rem; }
-    .card p { color: #ccc; min-height: 60px; font-size: 0.95rem; }
-    .btn-card {
-      display: inline-block; margin-top: 15px; padding: 10px 20px;
-      border-radius: 10px; font-size: 0.9rem;
-      background: #34d399; color: #111; text-decoration: none; transition: 0.3s;
-    }
+    /* Cards */
+    .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 25px; max-width: 1200px; margin: 60px auto; padding: 0 20px; }
+    .card { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 25px; backdrop-filter: blur(12px); transition: 0.3s; display: flex; flex-direction: column; justify-content: space-between; }
+    .card:hover { border-color: #34d399; transform: translateY(-6px); }
+    .card h3 { color: #7ef5c6; margin-bottom: 10px; font-size: 1.2rem; }
+    .card p { color: #ccc; min-height: 70px; font-size: 1rem; }
+    .btn-card { display: inline-block; margin-top: 15px; padding: 12px 24px; border-radius: 12px; font-size: 0.95rem; background: #34d399; color: #111; text-decoration: none; transition: 0.3s; text-align: center; }
     .btn-card:hover { background: #10b981; }
 
-    .highlights {
-      max-width: 1100px; margin: 60px auto; padding: 0 20px;
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px;
-    }
-    .highlight {
-      background: rgba(255,255,255,0.05); padding: 20px; border-radius: 16px;
-      border: 1px solid rgba(255,255,255,0.1); text-align: center;
-    }
-    .highlight h4 { color: #7ef5c6; margin-bottom: 10px; }
-    .highlight p { color: #aaa; font-size: 0.9rem; }
+    /* Destaques */
+    .highlights { max-width: 1200px; margin: 80px auto; padding: 0 20px; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 25px; }
+    .highlight { background: rgba(255,255,255,0.05); padding: 25px; border-radius: 16px; border: 1px solid rgba(255,255,255,0.1); text-align: center; transition: 0.3s; }
+    .highlight:hover { border-color: #34d399; }
+    .highlight h4 { color: #7ef5c6; margin-bottom: 12px; font-size: 1.1rem; }
+    .highlight p { color: #aaa; font-size: 0.95rem; }
 
-    .cta {
-      max-width: 900px; margin: 80px auto; padding: 30px;
-      text-align: center; background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.1); border-radius: 20px;
-      backdrop-filter: blur(20px);
-    }
-    .cta h3 { font-size: 1.6rem; }
-    .cta p { color: #ccc; margin-top: 10px; font-size: 1rem; }
-    .cta .btn-main { margin-top: 20px; }
+    /* CTA */
+    .cta { max-width: 900px; margin: 100px auto; padding: 35px 30px; text-align: center; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 20px; backdrop-filter: blur(20px); }
+    .cta h3 { font-size: 1.8rem; }
+    .cta p { color: #ccc; font-size: 1.05rem; margin-top: 12px; }
+    .cta .btn-main { margin-top: 25px; }
 
-    footer { padding: 20px; text-align: center; font-size: 0.8rem; color: #888; }
+    /* Footer */
+    footer { padding: 25px; text-align: center; font-size: 0.85rem; color: #888; border-top: 1px solid rgba(255,255,255,0.1); }
 
     /* Responsividade */
     @media (max-width: 600px) {
-      .hero h2 { font-size: 1.6rem; }
-      .hero p { font-size: 0.9rem; }
-      header { flex-direction: column; align-items: flex-start; }
-      header nav { margin-top: 10px; }
-      .logo { height: 40px; }
+      .hero h2 { font-size: 1.8rem; }
+      .hero p { font-size: 0.95rem; }
+      header { flex-direction: column; align-items: flex-start; padding: 20px; }
+      header nav { margin-top: 10px; gap: 10px; flex-wrap: wrap; }
+      .logo { height: 45px; }
     }
   </style>
 </head>
 <body>
+  <!-- Header -->
   <header>
     <img src="https://i.postimg.cc/Xqhjqxr8/Whats-App-Image-2025-09-01-at-00-19-58.jpg" alt="Logo Sytem DuJão" class="logo">
     <h1>Sytem DuJão</h1>
@@ -128,6 +87,7 @@
     </nav>
   </header>
 
+  <!-- Hero -->
   <section class="hero">
     <h2>Soluções digitais inteligentes para sua empresa</h2>
     <p>João Layon • Full Stack Developer • Fundador da <strong>Sytem DuJão</strong>.  
@@ -135,59 +95,44 @@
     <a href="#produtos" class="btn-main">Explorar Produtos</a>
   </section>
 
+  <!-- Produtos / Cards -->
   <section id="produtos" class="cards">
-
-      <!-- CiviPro Ultimate -->
-  <div class="card p-6 bg-white dark:bg-gray-900 rounded-lg shadow flex flex-col justify-between">
-    <h3 class="text-xl font-bold mb-2">CiviPro Ultimate</h3>
-    <p class="mb-4 text-gray-700 dark:text-gray-300">
-      Plataforma SaaS completa para engenheiros civis: gerencie projetos, clientes, fornecedores, materiais, mão de obra, equipamentos e orçamentos detalhados.
-    </p>
-    <a href="https://civilpro-system.onrender.com" class="btn-card px-4 py-2 bg-cyan-600 hover:bg-cyan-700 text-white rounded text-center" target="_blank">
-      Quero conhecer
-    </a>
-  </div>
-
-  <!-- MedConnect -->
-  <div class="card p-6 bg-white dark:bg-gray-900 rounded-lg shadow flex flex-col justify-between">
-    <h3 class="text-xl font-bold mb-2">MedConnect</h3>
-    <p class="mb-4 text-gray-700 dark:text-gray-300">
-      Plataforma completa para consultas médicas online: vídeo chamadas em tempo real, prontuário eletrônico, faturamento e relatórios integrados.
-    </p>
-    <a href="https://consultas-online.onrender.com" class="btn-card px-4 py-2 bg-cyan-600 hover:bg-cyan-700 text-white rounded text-center" target="_blank">
-      Quero conhecer
-    </a>
-  </div>
-    
     <div class="card">
-      
       <h3>Agendamento Médico IA</h3>
       <p>Sistema inteligente de agendamento médico com IA integrada, chatbot e painel administrativo.</p>
       <a href="https://assistente-de-agendamento-online-v1-0.onrender.com" class="btn-card" target="_blank">Quero conhecer</a>
     </div>
 
     <div class="card">
-      <h3>💌 Romantic Declaration System</h3>
+      <h3>Romantic Declaration System</h3>
       <p>Sistema para criar declarações românticas personalizadas com fotos e mensagens para compartilhar com quem você ama.</p>
       <a href="https://declarasystem.onrender.com" class="btn-card" target="_blank">Quero conhecer</a>
     </div>
 
-    
     <div class="card">
-      <h3>CivilSaaS (EngenPro)</h3>
-      <p>Plataforma SaaS para engenheiros civis: prazos, custos, segurança, licenças e relatórios.</p>
-      <a href="https://engpro-v1.onrender.com/login" class="btn-card" target="_blank">Quero conhecer</a>
+      <h3>CiviPro Ultimate</h3>
+      <p>Plataforma SaaS completa para engenheiros civis: gerencie projetos, clientes, fornecedores, materiais, mão de obra e orçamentos detalhados.</p>
+      <a href="https://civilpro-system.onrender.com" class="btn-card" target="_blank">Quero conhecer</a>
     </div>
+
+    <div class="card">
+      <h3>MedConnect</h3>
+      <p>Plataforma completa para consultas médicas online: vídeo chamadas em tempo real, prontuário eletrônico, faturamento e relatórios integrados.</p>
+      <a href="https://consultas-online.onrender.com" class="btn-card" target="_blank">Quero conhecer</a>
+    </div>
+
     <div class="card">
       <h3>Financeiro Inteligente v7.0 (IA)</h3>
       <p>Painel financeiro com IA para insights, automações e relatórios completos.</p>
       <a href="https://financeiro-inteligente-v7-0-com-ia.onrender.com" class="btn-card" target="_blank">Quero conhecer</a>
     </div>
+
     <div class="card">
       <h3>Controle Neuropsicológico</h3>
       <p>Gestão de pacientes, agendamentos e laudos com modelo financeiro adaptado para clínicas.</p>
       <a href="https://controle-geral-neruropsicologia.onrender.com" class="btn-card" target="_blank">Quero conhecer</a>
     </div>
+
     <div class="card">
       <h3>AVA System v2.0</h3>
       <p>Ambiente virtual de aprendizagem com módulos dinâmicos para ensino.</p>
@@ -195,6 +140,7 @@
     </div>
   </section>
 
+  <!-- Highlights / Diferenciais -->
   <section class="highlights">
     <div class="highlight"><h4>IA Aplicada</h4><p>Automação, agentes inteligentes e relatórios preditivos.</p></div>
     <div class="highlight"><h4>Confiabilidade</h4><p>Sistemas estáveis, com logs e segurança de ponta.</p></div>
@@ -202,22 +148,16 @@
     <div class="highlight"><h4>Integrações</h4><p>Conexão com bancos de dados, APIs e serviços em nuvem.</p></div>
   </section>
 
+  <!-- CTA -->
   <section id="contato" class="cta">
     <h3>Quer levar sua operação para o próximo nível?</h3>
     <p>Entre em contato com a <strong>Sytem DuJão</strong> e descubra qual solução é ideal para você.</p>
     <a href="https://wa.me/5531995281707?text=Olá%20João%20Layon,%20tenho%20interesse%20nas%20soluções%20da%20Sytem%20DuJão" target="_blank" class="btn-main">Falar com João no WhatsApp</a>
   </section>
 
+  <!-- Footer -->
   <footer>
     © 2025 • Sytem DuJão. Desenvolvido por João Layon • Full Stack.
   </footer>
 </body>
 </html>
-
-
-
-
-
-
-
-
